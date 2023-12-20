@@ -15,7 +15,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 const Banner = () => {
 
     return (
-        <div>
+        <div className=''>
    <Swiper 
         spaceBetween={30}
         centeredSlides={true}
@@ -32,7 +32,7 @@ const Banner = () => {
             nextEl: null,
           }}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper  "
+        className="mySwiper    max-h-[300px] object-cover"
       >
         <SwiperSlide >
             <div className=''>

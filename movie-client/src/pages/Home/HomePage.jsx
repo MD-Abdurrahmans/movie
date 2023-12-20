@@ -3,6 +3,7 @@
 import Alphabet from "../../components/alphabet/Alphabet";
 import Containers from "../../shared/containers/Containers";
 import Banner from "./components/Banner/Banner";
+import BanglaSub from "./components/banglaSub/BanglaSub";
 
 const HomePage = () => {
   return (
@@ -13,12 +14,16 @@ const HomePage = () => {
 
 
  <Containers>
- <div className='grid md:grid-cols-12 my-10'>
+ <div className='grid grid-cols-1  md:grid-cols-12 my-10'>
         {/* left  */}
-        <div className='md:col-span-8 border min-h-screen'>
+        <div className=' md:col-span-8 space-y-10  border min-h-screen'>
 
             {/* banner carousel */}
             <Banner></Banner>
+
+
+            {/* bangla sub */}
+            <BanglaSub></BanglaSub>
         </div>
 
         {/* Right  */}
