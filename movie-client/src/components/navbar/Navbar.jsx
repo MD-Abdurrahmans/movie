@@ -6,13 +6,19 @@ import {Link} from "react-router-dom";
 import Containers from "../../shared/containers/Containers";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useState } from "react";
+import useMovies from "../../hooks/useMovies";
 const Navbar = () => {
 const [toggle,setToggle] = useState(true);
 const [searchBox,setSearchBox] = useState(true);
+const  [movies] = useMovies();
 
+console.log(movies?.movies)
 
 
   const links = (
+
+    
+
     <>
       {/* link 1 */}
       <li className='group relative'>
@@ -126,103 +132,17 @@ const [searchBox,setSearchBox] = useState(true);
         <ul className='p-2 bg-primary w-[400px] hidden  group-hover:block border-0 rounded-none  top-5  z-50 md:top-9  absolute '>
           <div className='grid md:grid-cols-3 gap-4'>
             {/* one */}
-            <div>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Anime
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Biography
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Horror
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Romance
-                </Link>
-              </li>
-            </div>
-            {/* two */}
-            <div>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Sports
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Animation &
-                  cartoon Movies
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Comedy
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Drama
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Mystery
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Sci,fi
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> War
-                </Link>
-              </li>
-            </div>
-            {/* three */}
-            <div>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Bollywood
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Telugu
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> English,
-                  Hollywood
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Malayam
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' />
-                  Dual audio
-                </Link>
-              </li>
-              <li>
-                <Link to='' className='text-basic '>
-                  <TbArrowBadgeRightFilled className='font-bold' /> Tv,Web
-                  Series
-                </Link>
-              </li>
-            </div>
+           
+            {
+                 movies?.movies?.map((movie)=><>
+                 
+                  <Link to={`/${movie?.genre?.name}`}>
+                  
+                    <li>{movie?.genre?.name}</li>
+                  </Link>
+                 </>)
+            }
+     
           </div>
         </ul>
       </li>

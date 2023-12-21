@@ -1,7 +1,7 @@
 /** @format */
 
 import SectionTitle from "../../../../shared/sectionTitle/SectionTitle";
-import {RiMovie2Line} from "react-icons/ri";
+
 // Import Swiper React components
 import {Swiper, SwiperSlide} from "swiper/react";
 
@@ -19,12 +19,16 @@ const BanglaSub = () => {
   const [movies] = useMovies();
 
   const allMovies = movies?.movies;
-console.log(allMovies)
+// console.log(allMovies)
+ 
+const banglaSub = allMovies?.filter((movie)=>{
 
+   const  link = movie?.categories[0]?.links;
 
-  const banglaSub = allMovies?.filter((Bsub)=>Bsub?.languages[0].bSub ===true )
+    return link?.some((sub)=>sub.sub == 'bSub');
+})
 
-  console.log(banglaSub)
+// console.log(banglaSub)
 
 
 
@@ -34,8 +38,9 @@ console.log(allMovies)
 
       {/* SWIPERS  */}
       <div className='my-5  border-b-2'>
-        <Swiper
 
+         <Swiper
+ key={banglaSub?._id}
         breakpoints={{
             468:{
                 slidesPerView:2,
@@ -67,8 +72,9 @@ console.log(allMovies)
            <MoviesCard 
            
             image={sub?.poster}
-            badge={sub?.languages[0].bSub? 'Bsub': ''}
+            badge={sub?.categories[0]?.links[0]?.sub}
             release_date={sub?.release_date}
+            ratings={sub?.ratings}
 
            ></MoviesCard>
           </SwiperSlide>
@@ -79,7 +85,8 @@ console.log(allMovies)
 
      
 
-        </Swiper>
+        </Swiper> 
+
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 /** @format */
 
-import {data} from "autoprefixer";
+
 import useMovies from "../../../../hooks/useMovies";
 import SectionTitle from "../../../../shared/sectionTitle/SectionTitle";
 import MoviesCard from "../../../../shared/moviesCards/MoviesCard";
@@ -24,17 +24,17 @@ const LatestMovie = () => {
       {/* LATEST CONTAINER GRID */}
 
       <div className="my-5">
-        <div className='grid grid-cols-2  md:grid-cols-3 xl:grid-cols-4 gap-4 '>
+        <div className='grid grid-cols-2 md:grid-cols-3 ' >
           {sorts?.map((latest) => (
             <>
               <MoviesCard
                 image={latest?.poster}
                 badge={
-                  latest?.languages[0].dual_audio ? "Dual Audio" : "English"
-                }
+                  latest?.categories[0]?.links[0]?.title}
 
                 release_date={latest?.release_date}
                 ratings={latest?.ratings}
+                name={latest?.title}
               ></MoviesCard>
             </>
           ))}

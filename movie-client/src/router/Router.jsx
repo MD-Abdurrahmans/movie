@@ -5,7 +5,7 @@ import {
   } from "react-router-dom";
 import Root from "../layouts/Root/Root";
 import HomePage from "../pages/Home/HomePage";
-import Categories from "../pages/categories/Categories";
+import Category from "../components/category/Category";
 
 
 
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
            element:<HomePage/>
         },
         {
-           path:'/category/:id',
-           element:<Categories/>
+           path:'/:name',
+           element: <Category></Category>
         },
     ]
     }
