@@ -1,7 +1,7 @@
 /** @format */
 
 import {FiAirplay} from "react-icons/fi";
-import {TbArrowBadgeRightFilled, TbArrowBadgeDownFilled, TbFlagSearch} from "react-icons/tb";
+import {TbArrowBadgeRightFilled, TbArrowBadgeDownFilled, } from "react-icons/tb";
 import {Link} from "react-router-dom";
 import Containers from "../../shared/containers/Containers";
 import { AiOutlineSearch } from "react-icons/ai";
@@ -102,9 +102,9 @@ const [searchBox,setSearchBox] = useState(true);
                 </Link>
               </li>
               <li>
-                <Link to='' className='text-basic '>
+                <Link to={`/category/${'Actions'}`} className='text-basic '>
                   <TbArrowBadgeRightFilled className='font-bold' />
-                  Dual audio
+                 Actions
                 </Link>
               </li>
               <li>
@@ -289,7 +289,7 @@ const [searchBox,setSearchBox] = useState(true);
                 // tabIndex={0}
                 onClick={()=>setToggle(!toggle)}
                 role='button'
-                className='btn btn-ghost lg:hidden'
+                className='btn btn-ghost lg:hidden z-10'
               >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -309,15 +309,18 @@ const [searchBox,setSearchBox] = useState(true);
               </div>
               <ul
                     
-                className={`menu menu-sm ${toggle?'hidden': '' }  absolute   mt-3 z-[1] p-2 shadow bg-primary rounded-box w-52 `}
+                className={`menu menu-sm ${toggle?'hidden': '' }  absolute   mt-3  z-50 p-2 shadow bg-primary rounded-box w-52 `}
               >
                 {links}
               </ul>
             </div>
-            <a className='text-basic text-xl flex '>
+         
+          <Link to='/' >
+          <span className='text-basic text-xl flex '>
               {" "}
               <FiAirplay className='text-3xl mr-2' /> Movies
-            </a>
+            </span>
+          </Link>
           </div>
           <div className='navbar-center hidden lg:flex'>
             <ul className='menu menu-horizontal px-1'>{links}</ul>
